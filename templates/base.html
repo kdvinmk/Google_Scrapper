@@ -1,0 +1,42 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Scrapper</title>
+
+    <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+<nav class="black">
+    <div class="container nav-wrapper">
+        <a href="/" class="brand-logo center">Google Scrapper</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="container">
+        <div class="row center">
+            <h1>Google scrapper</h1>
+            <p><i class="material-icons dp48">build</i>️ by Kavin Mukil</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form action="{% url 'new_search' %}" method="post">{% csrf_token %}
+                <input type="text" name="search" placeholder="Search">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    </div>
+    {% block content %}
+
+    {% endblock content %}
+</div>
+</body>
+</html>
